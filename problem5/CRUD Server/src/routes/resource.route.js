@@ -2,6 +2,10 @@ import express from "express";
 import {
   getAllResource,
   getResourceById,
+  createResource,
+  updateResource,
+  deleteResource,
+  filterResource,
 } from "../controllers/resource.controller.js";
 
 const router = express.Router();
@@ -11,11 +15,17 @@ router.get("/getAll", getAllResource);
 
 //get by id
 router.get("/get/:id", getResourceById);
-//
-router.post("/create", (req, res) => {});
-//
-router.put("/update/:id", (req, res) => {});
-//
-router.delete("/delete/:id", (req, res) => {});
+
+//create
+router.post("/create", createResource);
+
+//filter
+router.get("/filter", filterResource);
+
+//update
+router.put("/update/:id", updateResource);
+
+//delete
+router.delete("/delete/:id", deleteResource);
 
 export default router;

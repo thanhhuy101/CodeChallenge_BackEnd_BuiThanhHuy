@@ -5,6 +5,8 @@ import resourceRoutes from "./routes/resource.route.js";
 
 dotenv.config();
 const app = express();
+
+app.use(express.json());
 app.use("/api/resource", resourceRoutes);
 
 const PORT = process.env.PORT;
